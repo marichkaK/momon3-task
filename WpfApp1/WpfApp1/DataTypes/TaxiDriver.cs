@@ -16,6 +16,9 @@ namespace TaxiDriverApp.DataTypes
         private uint costPerMinute;
         private double payCheck;
 
+        /// <summary>
+        /// Properties, which return/define id.
+        /// </summary>
         public uint Id
         {
             get
@@ -33,6 +36,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define surname.
+        /// </summary>
         public string Surname
         {
             get
@@ -50,6 +56,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define the name.
+        /// </summary>
         public string Name
         {
             get
@@ -67,6 +76,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define the age.
+        /// </summary>
         public uint Age
         {
             get
@@ -84,6 +96,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define car number.
+        /// </summary>
         public string CarNumber
         {
             get
@@ -101,6 +116,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define experience of taxi driver.
+        /// </summary>
         public uint Experience
         {
             get
@@ -118,6 +136,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define cost per minute.
+        /// </summary>
         public uint CostPerMinute
         {
             get
@@ -136,6 +157,9 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define the bill.
+        /// </summary>
         public double PayCheck
         {
             get
@@ -153,11 +177,25 @@ namespace TaxiDriverApp.DataTypes
             }
         }
 
+        /// <summary>
+        /// Constructor without parameters.
+        /// </summary>
         public TaxiDriver()
         {
             PayCheck = 0;
         }
 
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="_id"> id </param>
+        /// <param name="_surname"> surname </param>
+        /// <param name="_name"> name </param>
+        /// <param name="_age"> age </param>
+        /// <param name="_carNumber"> car number </param>
+        /// <param name="_experience"> experience </param>
+        /// <param name="_cost"> cost per minute drive </param>
+        /// <param name="_pay"> sum of the bill </param>
         public TaxiDriver(uint _id, string _surname, string _name, uint _age, string _carNumber, uint _experience, uint _cost, double _pay = 0)
         {
             Id = _id;
@@ -170,6 +208,10 @@ namespace TaxiDriverApp.DataTypes
             PayCheck = _pay;
         }
 
+        /// <summary>
+        /// ToString Method for Taxi Driver class.
+        /// </summary>
+        /// <returns> String with TaxiDriver class data fields. </returns>
         public override string ToString()
         {
             return String.Format("{0} {1} {2} {3} {4} {5} {6} {7}", Id, Surname, Name, Age, CarNumber, Experience, CostPerMinute, PayCheck);
