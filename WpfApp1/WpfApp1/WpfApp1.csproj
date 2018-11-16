@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="DataTypes\TaxiClient.cs" />
     <Compile Include="DataTypes\TaxiDriver.cs" />
+    <Compile Include="DataTypes\TaxiOrder.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
