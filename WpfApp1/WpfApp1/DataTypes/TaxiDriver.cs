@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TaxiDriverApp.DataTypes
+namespace WpfApp1.DataTypes
 {
+    /// <summary>
+    /// Represents class of Taxi Driver.
+    /// </summary>
     public class TaxiDriver
     {
+        // fields.
         private uint id;
         private string surname;
         private string name;

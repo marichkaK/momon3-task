@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TaxiDriverApp.DataTypes
+namespace WpfApp1.DataTypes
 {
+    /// <summary>
+    /// Represents class of Taxi Order.
+    /// </summary>
 	public class TaxiOrder
 	{
+        // fields.
 		private uint id;
 		private TaxiClient client;
 		private TaxiDriver driver;
@@ -17,6 +21,9 @@ namespace TaxiDriverApp.DataTypes
 		private uint cost;
 		private bool isDone;
 
+        /// <summary>
+        /// Properties, which return/define id.
+        /// </summary>
 		public uint Id
 		{
 			get
@@ -155,10 +162,26 @@ namespace TaxiDriverApp.DataTypes
 			}
 		}
 
+        /// <summary>
+        /// Constructor without parameters.
+        /// </summary>
 		public TaxiOrder()
 		{
 		}
 
+
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="_id"> order id </param>
+        /// <param name="_client"> client </param>
+        /// <param name="_driver"> driver </param>
+        /// <param name="_arrive"> arrival time </param>
+        /// <param name="_dispatch"> dispatch </param>
+        /// <param name="_destination"> destination </param>
+        /// <param name="_roadTime"> road time </param>
+        /// <param name="_cost"> cost </param>
+        /// <param name="_isDone"> flag if order is finished </param>
 		public TaxiOrder(uint _id, TaxiClient _client, TaxiDriver _driver, DateTime _arrive, string _dispatch, string _destination, uint _roadTime, uint _cost = 0, bool _isDone = false)
 		{
 			Id = _id;
@@ -172,6 +195,10 @@ namespace TaxiDriverApp.DataTypes
 			IsDone = _isDone;
 		}
 
+        /// <summary>
+        /// ToString Method for Taxi Order class.
+        /// </summary>
+        /// <returns> String with TaxiOrder class data fields. </returns>
 		public override string ToString()
 		{
 			return String.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8}", Id, Client.Id, Driver.Id, ArriveTime.ToString("yyyy-MM-dd_HH:mm"), Dispatch, Destination, RoadTime, Cost, IsDone);
