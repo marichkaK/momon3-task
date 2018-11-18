@@ -103,5 +103,11 @@
   <ItemGroup>
     <Resource Include="InputData\ClientsData.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InputData\OrdersData.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InputData\DriversData.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
