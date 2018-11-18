@@ -162,7 +162,7 @@ namespace TaxiDriverApp.DataTypes
         /// </summary>
         public double PayCheck
         {
-            get
+            get//loxa lox
             {
                 return payCheck;
             }
