@@ -9,7 +9,7 @@ namespace WpfApp1.DataTypes
     /// <summary>
     /// Represents class of Taxi Client.
     /// </summary>
-    class TaxiClient
+   public class TaxiClient
     {
         // fields.
         private uint id;
