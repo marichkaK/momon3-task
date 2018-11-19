@@ -66,6 +66,9 @@
     <Compile Include="DataTypes\TaxiClient.cs" />
     <Compile Include="DataTypes\TaxiDriver.cs" />
     <Compile Include="DataTypes\TaxiOrder.cs" />
+    <Compile Include="IOTypes\ClientsDB.cs" />
+    <Compile Include="IOTypes\DriversDB.cs" />
+    <Compile Include="IOTypes\OrdersDB.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -96,6 +99,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InputData\ClientsData.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InputData\OrdersData.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="InputData\DriversData.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

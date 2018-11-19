@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace WpfApp1.DataTypes
 {
+    /// <summary>
+    /// Represents class of Taxi Client.
+    /// </summary>
     class TaxiClient
     {
+        // fields.
         private uint id;
         private string name;
         private string phoneNumber;
 
+        /// <summary>
+        /// Properties, which return/define id.
+        /// </summary>
         public uint Id
         {
             get
@@ -30,6 +37,9 @@ namespace WpfApp1.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define the name.
+        /// </summary>
         public string Name
         {
             get
@@ -47,6 +57,9 @@ namespace WpfApp1.DataTypes
             }
         }
 
+        /// <summary>
+        /// Properties, which return/define phone number.
+        /// </summary>
         public string PhoneNumber
         {
             get
@@ -64,10 +77,19 @@ namespace WpfApp1.DataTypes
             }
         }
 
+        /// <summary>
+        /// Constructor without parameters.
+        /// </summary>
         public TaxiClient()
         {
         }
 
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="_id"> id </param>
+        /// <param name="_name"> taxi client name </param>
+        /// <param name="_phoneNumber"> phone number </param>
         public TaxiClient(uint _id, string _name, string _phoneNumber)
         {
             Id = _id;
@@ -75,6 +97,10 @@ namespace WpfApp1.DataTypes
             PhoneNumber = _phoneNumber;
         }
 
+        /// <summary>
+        /// ToString Method for Taxi Client class.
+        /// </summary>
+        /// <returns> String with TaxiClient class data fields. </returns>
         public override string ToString()
         {
             return String.Format("{0} {1} {2}", Id, Name, PhoneNumber);

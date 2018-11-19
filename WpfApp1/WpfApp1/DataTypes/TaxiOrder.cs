@@ -2,175 +2,206 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WpfApp1.DataTypes;
 
-namespace TaxiDriverApp.DataTypes
+namespace WpfApp1.DataTypes
 {
-    public class TaxiOrder
-    {
-        private uint id;
-        private TaxiDriver driver;
-        private DateTime arriveTime;
-        private string dispatch;
-        private string destination;
-        private uint roadTime;
-        private uint cost;
-        private bool isDone;
+    /// <summary>
+    /// Represents class of Taxi Order.
+    /// </summary>
+	public class TaxiOrder
+	{
+        // fields.
+		private uint id;
+		private TaxiClient client;
+		private TaxiDriver driver;
+		private DateTime arriveTime;
+		private string dispatch;
+		private string destination;
+		private uint roadTime;
+		private uint cost;
+		private bool isDone;
 
-        public uint Id
-        {
-            get
-            {
-                return id;
-            }
+        /// <summary>
+        /// Properties, which return/define id.
+        /// </summary>
+		public uint Id
+		{
+			get
+			{
+				return id;
+			}
 
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Id cant be <0");
-                }
+			set
+			{
+				if (value < 0)
+				{
+					throw new ArgumentOutOfRangeException("Id cant be <0");
+				}
 
-                id = value;
-            }
-        }
+				id = value;
+			}
+		}
 
-        private TaxiClient client;
+		public TaxiClient Client
+		{
+			get
+			{
+				return client;
+			}
 
-        public TaxiClient Client => client;
+			set
+			{
+				client = value;
+			}
+		}
 
-        public void SetClient(TaxiClient value)
-        {
-            client = value;
-        }
+		public TaxiDriver Driver
+		{
+			get
+			{
+				return driver;
+			}
 
-        public TaxiDriver Driver
-        {
-            get
-            {
-                return driver;
-            }
+			set
+			{
+				driver = value;
+			}
+		}
 
-            set
-            {
-                driver = value;
-            }
-        }
+		public DateTime ArriveTime
+		{
+			get
+			{
+				return arriveTime;
+			}
 
-        public DateTime ArriveTime
-        {
-            get
-            {
-                return arriveTime;
-            }
+			set
+			{
+				arriveTime = value;
+			}
+		}
 
-            set
-            {
-                arriveTime = value;
-            }
-        }
+		public string Dispatch
+		{
+			get
+			{
+				return dispatch;
+			}
 
-        public string Dispatch
-        {
-            get
-            {
-                return dispatch;
-            }
+			set
+			{
+				if (value == null)
+				{
+					throw new ArgumentOutOfRangeException("Dispatch is not set!");
+				}
+				dispatch = value;
+			}
+		}
 
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentOutOfRangeException("Dispatch is not set!");
-                }
-                dispatch = value;
-            }
-        }
+		public string Destination
+		{
+			get
+			{
+				return destination;
+			}
 
-        public string Destination
-        {
-            get
-            {
-                return destination;
-            }
+			set
+			{
+				if (value.Equals(dispatch))
+				{
+					throw new ArgumentOutOfRangeException("Destination and dispatch are the same place!");
+				}
+				destination = value;
+			}
+		}
 
-            set
-            {
-                if (value.Equals(dispatch))
-                {
-                    throw new ArgumentOutOfRangeException("Destination and dispatch are the same place!");
-                }
-                destination = value;
-            }
-        }
+		public uint RoadTime
+		{
+			get
+			{
+				return roadTime;
+			}
 
-        public uint RoadTime
-        {
-            get
-            {
-                return roadTime;
-            }
+			set
+			{
+				if (value < 0)
+				{
+					throw new ArgumentOutOfRangeException("Road time can only be >= than 0!");
+				}
+				roadTime = value;
+			}
+		}
 
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Road time can only be >= than 0!");
-                }
-                roadTime = value;
-            }
-        }
+		public uint Cost
+		{
+			get
+			{
+				return cost;
+			}
 
-        public uint Cost
-        {
-            get
-            {
-                return cost;
-            }
+			set
+			{
+				if (value < 0)
+				{
+					throw new ArgumentOutOfRangeException("Cost must be >= than 0!");
+				}
+				cost = value;
+			}
+		}
 
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentOutOfRangeException("Cost must be >= than 0!");
-                }
-                cost = value;
-            }
-        }
+		public bool IsDone
+		{
+			get
+			{
+				return isDone;
+			}
 
-        public bool IsDone
-        {
-            get
-            {
-                return isDone;
-            }
+			set
+			{
+				isDone = value;
+			}
+		}
 
-            set
-            {
-                isDone = value;
-            }
-        }
+        /// <summary>
+        /// Constructor without parameters.
+        /// </summary>
+		public TaxiOrder()
+		{
+		}
 
-        public TaxiOrder()
-        {
-        }
 
-        public TaxiOrder(uint _id, TaxiClient _client, TaxiDriver _driver, DateTime _arrive, string _dispatch, string _destination, uint _roadTime, uint _cost = 0, bool _isDone = false)
-        {
-            Id = _id;
-            SetClient(_client);
-            Driver = _driver;
-            ArriveTime = _arrive;
-            Dispatch = _dispatch;
-            Destination = _destination;
-            RoadTime = _roadTime;
-            Cost = _cost;
-            IsDone = _isDone;
-        }
+        /// <summary>
+        /// Constructor with parameters.
+        /// </summary>
+        /// <param name="_id"> order id </param>
+        /// <param name="_client"> client </param>
+        /// <param name="_driver"> driver </param>
+        /// <param name="_arrive"> arrival time </param>
+        /// <param name="_dispatch"> dispatch </param>
+        /// <param name="_destination"> destination </param>
+        /// <param name="_roadTime"> road time </param>
+        /// <param name="_cost"> cost </param>
+        /// <param name="_isDone"> flag if order is finished </param>
+		public TaxiOrder(uint _id, TaxiClient _client, TaxiDriver _driver, DateTime _arrive, string _dispatch, string _destination, uint _roadTime, uint _cost = 0, bool _isDone = false)
+		{
+			Id = _id;
+			Client = _client;
+			Driver = _driver;
+			ArriveTime = _arrive;
+			Dispatch = _dispatch;
+			Destination = _destination;
+			RoadTime = _roadTime;
+			Cost = _cost;
+			IsDone = _isDone;
+		}
 
-        public override string ToString()
-        {
-            return String.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8}", Id, Client.Id, Driver.Id, ArriveTime.ToString("yyyy-MM-dd_HH:mm"), Dispatch, Destination, RoadTime, Cost, IsDone);
-        }
-    }
+        /// <summary>
+        /// ToString Method for Taxi Order class.
+        /// </summary>
+        /// <returns> String with TaxiOrder class data fields. </returns>
+		public override string ToString()
+		{
+			return String.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8}", Id, Client.Id, Driver.Id, ArriveTime.ToString("yyyy-MM-dd_HH:mm"), Dispatch, Destination, RoadTime, Cost, IsDone);
+		}
+	}
 }
